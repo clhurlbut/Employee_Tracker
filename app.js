@@ -10,7 +10,7 @@ const del = require('./lib/delete');
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    port: 3030,
+    port: 3306,
     // Your MySQL username
     user: 'root',
     // Your MySQL password
@@ -41,7 +41,7 @@ exports.start = () => {
     ])
         .then(function (answer) {
             if (answer.choice === "View All Employees") {
-                view.viewAllEmployees();
+                view.viewEntireCompany();
             }
             else if (answer.choice === "Add Employee") {
                 add.addEmployee();
