@@ -34,6 +34,7 @@ afterConnection = () => {
                 "View All Employees",
                 "Add Employee",
                 "Update Employee Role",
+                "Delete Employee",
                 "EXIT"
             ]
         }
@@ -43,12 +44,19 @@ afterConnection = () => {
                 view.viewAllEmployees();
             }
             else if (answer.choice === "Add Employee") {
+                add.addEmployee();
 
             }
             else if (answer.choice === "Update Employee Role") {
+                update.updateEmployee();
+
+            }
+            else if (answer.choice === "Delete Employee") {
+                del.deleteEmployee();
 
             }
             else if (answer.choice === "EXIT") {
+                console.log("Thanks for using Employee Tracker! Goodbye!");
                 connection.end();
                 return
             }
