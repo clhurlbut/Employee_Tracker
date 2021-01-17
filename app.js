@@ -40,7 +40,7 @@ afterConnection = () => {
     ])
         .then(function (answer) {
             if (answer.choice === "View All Employees") {
-
+                view.viewAllEmployees();
             }
             else if (answer.choice === "Add Employee") {
 
