@@ -10,7 +10,7 @@ const del = require('./lib/delete');
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    port: 3001,
+    port: 3030,
     // Your MySQL username
     user: 'root',
     // Your MySQL password
@@ -18,13 +18,13 @@ const connection = mysql.createConnection({
     database: 'employees_db'
 });
 
-connection.connect(err => {
+connection.connect(function (err) {
     if (err) throw err;
     console.log('connected as id ' + connection.threadId);
-    afterConnection();
+    exports.start();
 });
 
-afterConnection = () => {
+exports.start = () => {
     inquirer.prompt([
         {
             type: "list",
