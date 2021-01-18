@@ -25,6 +25,9 @@ connection.connect(function (err) {
 });
 
 exports.start = () => {
+    figlet('Welcome!', (err, result) => {
+        console.log(err || result);
+    });
     inquirer.prompt([
         {
             type: "list",
@@ -77,7 +80,9 @@ exports.start = () => {
                 del.deleteDept();
             }
             else if (answer.choice === "EXIT") {
-                console.log("Thanks for using Employee Tracker! Goodbye!");
+                figlet('Bye!', (err, result) => {
+                    console.log(err || result);
+                });
                 connection.end();
                 return
             }
