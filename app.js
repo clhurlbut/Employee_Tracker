@@ -18,6 +18,15 @@ const connection = mysql.createConnection({
     database: 'employees_db'
 });
 
+figlet('Welcome!', function (err, data) {
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    console.log(data)
+});
+
 connection.connect(function (err) {
     if (err) throw err;
     console.log('connected as id ' + connection.threadId);
@@ -25,9 +34,6 @@ connection.connect(function (err) {
 });
 
 exports.start = () => {
-    figlet('Welcome!', (err, result) => {
-        console.log(err || result);
-    });
     inquirer.prompt([
         {
             type: "list",
@@ -47,44 +53,48 @@ exports.start = () => {
                 "EXIT"
             ]
         }
-    ])
-        .then(function (answer) {
-            if (answer.choice === "View All Departments") {
-                view.viewAllDept();
-            }
-            else if (answer.choice === "View All Roles") {
-                view.viewAllRoles();
-            }
-            else if (answer.choice === "View All Employees") {
-                view.viewEntireCompany();
-            }
-            else if (answer.choice === "Add Employee") {
-                add.addEmployee();
-            }
-            else if (answer.choice === "Add Role") {
-                add.addRole();
-            }
-            else if (answer.choice === "Add Department") {
-                add.addDept();
-            }
-            else if (answer.choice === "Update Employee Role") {
-                update.updateEmployee();
-            }
-            else if (answer.choice === "Delete Employee") {
-                del.deleteEmployee();
-            }
-            else if (answer.choice === "Delete Role") {
-                del.deleteRole();
-            }
-            else if (answer.choice === "Delete Department") {
-                del.deleteDept();
-            }
-            else if (answer.choice === "EXIT") {
-                figlet('Bye!', (err, result) => {
-                    console.log(err || result);
-                });
-                connection.end();
-                return
-            }
-        });
+    ]).then(function (answer) {
+        if (answer.choice === "View All Departments") {
+            view.viewAllDept();
+        }
+        else if (answer.choice === "View All Roles") {
+            view.viewAllRoles();
+        }
+        else if (answer.choice === "View All Employees") {
+            view.viewEntireCompany();
+        }
+        else if (answer.choice === "Add Employee") {
+            add.addEmployee();
+        }
+        else if (answer.choice === "Add Role") {
+            add.addRole();
+        }
+        else if (answer.choice === "Add Department") {
+            add.addDept();
+        }
+        else if (answer.choice === "Update Employee Role") {
+            update.updateEmployee();
+        }
+        else if (answer.choice === "Delete Employee") {
+            del.deleteEmployee();
+        }
+        else if (answer.choice === "Delete Role") {
+            del.deleteRole();
+        }
+        else if (answer.choice === "Delete Department") {
+            del.deleteDept();
+        }
+        else if (answer.choice === "EXIT") {
+            figlet('Goodbye!', function (err, data) {
+                if (err) {
+                    console.log('Something went wrong...');
+                    console.dir(err);
+                    return;
+                }
+                console.log(data)
+            });
+            connection.end();
+            return
+        }
+    });
 };
