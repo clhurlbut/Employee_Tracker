@@ -58,18 +58,15 @@ exports.start = () => {
             }
             else if (answer.choice === "Add Role") {
                 add.addRole();
-
             }
-            // else if (answer.choice === "Add Department") {
-
-            // }
+            else if (answer.choice === "Add Department") {
+                add.addDept();
+            }
             else if (answer.choice === "Update Employee Role") {
                 update.updateEmployee();
-
             }
             else if (answer.choice === "Delete Employee") {
                 del.deleteEmployee();
-
             }
             else if (answer.choice === "EXIT") {
                 console.log("Thanks for using Employee Tracker! Goodbye!");
