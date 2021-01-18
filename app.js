@@ -31,8 +31,12 @@ exports.start = () => {
             message: "What would you like to do?",
             name: "choice",
             choices: [
+                "View All Departments",
+                "View All Roles",
                 "View All Employees",
                 "Add Employee",
+                "Add Role",
+                "Add Department",
                 "Update Employee Role",
                 "Delete Employee",
                 "EXIT"
@@ -40,13 +44,25 @@ exports.start = () => {
         }
     ])
         .then(function (answer) {
-            if (answer.choice === "View All Employees") {
+            if (answer.choice === "View All Departments") {
+                view.viewAllDept();
+            }
+            else if (answer.choice === "View All Roles") {
+                view.viewAllRoles();
+            }
+            else if (answer.choice === "View All Employees") {
                 view.viewEntireCompany();
             }
             else if (answer.choice === "Add Employee") {
                 add.addEmployee();
+            }
+            else if (answer.choice === "Add Role") {
+                add.addRole();
 
             }
+            // else if (answer.choice === "Add Department") {
+
+            // }
             else if (answer.choice === "Update Employee Role") {
                 update.updateEmployee();
 
