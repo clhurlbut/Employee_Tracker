@@ -39,8 +39,20 @@ THEN I am prompted to select an employee to update and their new role and this i
 /app.js 
 -- run the app and call all the functions
 
+BONUS 
 
+- make use of Figlet NPM 
+-- add increased functionality 
 
+Update employee managers.
+
+View employees by manager.
+
+View employees by department.
+
+Delete departments, roles, and employees.
+
+View the total utilized budget of a department—i.e., the combined salaries of all employees in that department.
 
 
 

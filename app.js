@@ -39,6 +39,8 @@ exports.start = () => {
                 "Add Department",
                 "Update Employee Role",
                 "Delete Employee",
+                "Delete Role",
+                "Delete Department",
                 "EXIT"
             ]
         }
@@ -67,6 +69,12 @@ exports.start = () => {
             }
             else if (answer.choice === "Delete Employee") {
                 del.deleteEmployee();
+            }
+            else if (answer.choice === "Delete Role") {
+                del.deleteRole();
+            }
+            else if (answer.choice === "Delete Department") {
+                del.deleteDept();
             }
             else if (answer.choice === "EXIT") {
                 console.log("Thanks for using Employee Tracker! Goodbye!");
